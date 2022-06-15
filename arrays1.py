@@ -11,7 +11,6 @@ Output: Number of unique elements and array without duplicates
 """
 def removeDuplicates(nums):
     i = 0
-    cnt = 0
     lst_size = len(nums) - 1
     if not nums:
         print("nums is empty")
@@ -23,10 +22,30 @@ def removeDuplicates(nums):
             break
         i2 = nums[i+1]
         if i1 == i2:
-            cnt = cnt + 1
             nums.remove(i2)
-            nums.append('_')
+            nums.append('_') 
+            while i1 == nums[i+1]: # check for more than 2 duplicates of a number
+                nums.remove(nums[i+1])
+                nums.append('_')   
         i = i + 1
-    print(cnt)
-    print(nums)
+    return nums
+
+def counter(nums):
+    cnt = 0
+    # Determine actual number
+    for x in nums:
+        if x == '_':
+            break
+        cnt = cnt + 1
+
+    print(cnt,", nums = ",nums)
+
+def main():
+    nums = [0,1,1,2]
+    nums_new = removeDuplicates(nums)
+    counter(nums_new)
+
+
+main()
+
         
