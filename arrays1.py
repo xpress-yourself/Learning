@@ -41,7 +41,7 @@ def counter(nums):
     print(cnt,", nums = ",nums)
 
 def main():
-    nums = [0,1,1,2]
+    nums = [0,1,2]
     nums_new = removeDuplicates(nums)
     counter(nums_new)
 
